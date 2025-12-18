@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format": "prettier . --write  && sort-package-json",
+    "format:check": "prettier . --check && sort-package-json --check"
   },
   "devDependencies": {
     "eslint-config-prettier": "10.1.8",
     "nx": "22.3.1",
-    "prettier": "3.7.4"
+    "prettier": "3.7.4",
+    "sort-package-json": "3.6.0"
   },
   "packageManager": "pnpm@10.26.0",
   "engines": {

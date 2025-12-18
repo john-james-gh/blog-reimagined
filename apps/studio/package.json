@@ -1,12 +1,12 @@
 {
   "name": "studio",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "dev": "sanity dev",
-    "start": "sanity start",
     "build": "sanity build",
+    "dev": "sanity dev",
     "lint": "eslint",
+    "start": "sanity start",
     "typegen": "sanity schema extract --path=../blog/lib/sanity/schema.json && sanity typegen generate"
   },
   "dependencies": {

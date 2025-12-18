@@ -1,9 +1,5 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "useDaemonProcess": false,
-  "tui": {
-    "autoExit": false
-  },
   "targetDefaults": {
     "build": {
       "cache": true,
@@ -15,5 +11,9 @@
     "typegen": {
       "cache": true
     }
-  }
+  },
+  "tui": {
+    "autoExit": false
+  },
+  "useDaemonProcess": false
 }
