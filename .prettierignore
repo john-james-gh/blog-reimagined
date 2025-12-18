@@ -2,4 +2,6 @@
 # Prettier picks up .gitignore by default, but it doesn't pick up if the file is nested. e.g. apps/blog/.gitignore
 # the list is merged with .gitignore automatically. (but only the root one)
 **/.next
+**/.sanity
+**/dist
 pnpm-lock.yaml
