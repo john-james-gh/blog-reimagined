@@ -1,10 +1,11 @@
+import { PortableText } from "next-sanity";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+
 import { client } from "@/lib/sanity/client";
+import { urlFor } from "@/lib/sanity/image";
 import { components } from "@/lib/sanity/portable-text-components";
 import { POST_QUERY } from "@/lib/sanity/queries";
-import { PortableText } from "next-sanity";
-import { notFound } from "next/navigation";
-import Image from "next/image";
-import { urlFor } from "@/lib/sanity/image";
 
 const getPost = async (props: PageProps<"/posts/[slug]">) => {
   try {

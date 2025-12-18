@@ -1,6 +1,7 @@
-import "./globals.css";
-import type { PropsWithChildren } from "react";
 import { Roboto_Flex, Roboto_Mono } from "next/font/google";
+import type { PropsWithChildren } from "react";
+
+import "./globals.css";
 
 const roboto = Roboto_Flex({ subsets: ["latin"], variable: "--font-roboto" });
 const robotoMono = Roboto_Mono({ subsets: ["latin"], variable: "--font-roboto-mono" });

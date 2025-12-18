@@ -1,6 +1,7 @@
+import Link from "next/link";
+
 import { client } from "@/lib/sanity/client";
 import { POSTS_QUERY } from "@/lib/sanity/queries";
-import Link from "next/link";
 
 const getPosts = async () => {
   try {

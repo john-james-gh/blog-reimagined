@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
+
 import Page from "../app/page";
 
 jest.mock("next-sanity", () => ({
