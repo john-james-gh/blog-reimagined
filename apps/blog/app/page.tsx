@@ -16,6 +16,7 @@ export default async function Page() {
 
   return (
     <main>
+      <h1>Blog Posts</h1>
       <ul>
         {posts.map((post) => (
           <li key={post._id} className="list-none">

@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`renders homepage unchanged 1`] = `
+exports[`Snapshots renders homepage unchanged 1`] = `
 <div>
-  <div>
+  <main>
     <h1>
-      Home
+      Blog Posts
     </h1>
-  </div>
+    <ul />
+  </main>
 </div>
 `;
