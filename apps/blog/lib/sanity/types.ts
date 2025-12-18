@@ -316,3 +316,128 @@ export type AllSanitySchemaTypes =
   | Geopoint;
 
 export declare const internalGroqTypeReferenceTo: unique symbol;
+
+// Source: ..\blog\lib\sanity\queries.ts
+// Variable: POSTS_QUERY
+// Query: *[_type == "post" && defined(slug.current)]|order(publishedAt desc)[0...12]{  _id,  title,  slug,  body,  mainImage,  publishedAt,  _updatedAt,  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "image": seo.image,    "noIndex": seo.noIndex == true  },  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  author->{    name,    image  }}
+export type POSTS_QUERY_RESULT = Array<{
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  body: BlockContent | null;
+  mainImage: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  publishedAt: string | null;
+  _updatedAt: string;
+  seo: {
+    title: string | "";
+    description: string | "";
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+    noIndex: boolean | false;
+  };
+  categories:
+    | Array<{
+        _id: string;
+        slug: Slug | null;
+        title: string | null;
+      }>
+    | Array<never>;
+  author: {
+    name: string | null;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  } | null;
+}>;
+
+// Source: ..\blog\lib\sanity\queries.ts
+// Variable: POST_QUERY
+// Query: *[_type == "post" && slug.current == $slug][0]{  _id,  title,  body,  slug,  mainImage,  publishedAt,  _createdAt,  _updatedAt,  "seo": {    "title": coalesce(seo.title, title, ""),    "description": coalesce(seo.description,  ""),    "image": seo.image,    "noIndex": seo.noIndex == true  },  "categories": coalesce(categories[]->{      _id,      slug,      title    }, []),  author->{    name,    image  },  "relatedPosts": coalesce(relatedPosts[]->{    _id,    title,    slug,    publishedAt  }, [])}
+export type POST_QUERY_RESULT = {
+  _id: string;
+  title: string | null;
+  body: BlockContent | null;
+  slug: Slug | null;
+  mainImage: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  publishedAt: string | null;
+  _createdAt: string;
+  _updatedAt: string;
+  seo: {
+    title: string | "";
+    description: string | "";
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+    noIndex: boolean | false;
+  };
+  categories:
+    | Array<{
+        _id: string;
+        slug: Slug | null;
+        title: string | null;
+      }>
+    | Array<never>;
+  author: {
+    name: string | null;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  } | null;
+  relatedPosts:
+    | Array<{
+        _id: string;
+        title: string | null;
+        slug: Slug | null;
+        publishedAt: string | null;
+      }>
+    | Array<never>;
+} | null;
+
+// Source: ..\blog\lib\sanity\queries.ts
+// Variable: SITEMAP_QUERY
+// Query: *[_type == "post" && defined(slug.current) && seo.noIndex != true] {  "href": "/posts/" + coalesce(slug.current, ""),  _updatedAt}
+export type SITEMAP_QUERY_RESULT = Array<{
+  href: string | "/posts/";
+  _updatedAt: string;
+}>;
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    '*[_type == "post" && defined(slug.current)]|order(publishedAt desc)[0...12]{\n  _id,\n  title,\n  slug,\n  body,\n  mainImage,\n  publishedAt,\n  _updatedAt,\n  "seo": {\n    "title": coalesce(seo.title, title, ""),\n    "description": coalesce(seo.description,  ""),\n    "image": seo.image,\n    "noIndex": seo.noIndex == true\n  },\n  "categories": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  author->{\n    name,\n    image\n  }\n}': POSTS_QUERY_RESULT;
+    '*[_type == "post" && slug.current == $slug][0]{\n  _id,\n  title,\n  body,\n  slug,\n  mainImage,\n  publishedAt,\n  _createdAt,\n  _updatedAt,\n  "seo": {\n    "title": coalesce(seo.title, title, ""),\n    "description": coalesce(seo.description,  ""),\n    "image": seo.image,\n    "noIndex": seo.noIndex == true\n  },\n  "categories": coalesce(categories[]->{\n      _id,\n      slug,\n      title\n    }, []),\n  author->{\n    name,\n    image\n  },\n  "relatedPosts": coalesce(relatedPosts[]->{\n    _id,\n    title,\n    slug,\n    publishedAt\n  }, [])\n}': POST_QUERY_RESULT;
+    '*[_type == "post" && defined(slug.current) && seo.noIndex != true] {\n  "href": "/posts/" + coalesce(slug.current, ""),\n  _updatedAt\n}': SITEMAP_QUERY_RESULT;
+  }
+}
