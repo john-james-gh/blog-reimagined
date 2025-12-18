@@ -37,9 +37,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Check system info
-        run: pnpm next info
-
       # Prime the Next.js incremental build cache using the pattern from the official Next.js docs.
       - name: Restore Next.js cache
         uses: actions/cache@v5
