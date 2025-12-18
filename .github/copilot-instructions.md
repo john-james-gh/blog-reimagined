@@ -1,3 +1,5 @@
+# Copilot Instructions
+
 ## Project Structure
 
 This is an Nx monorepo where apps are nested.
