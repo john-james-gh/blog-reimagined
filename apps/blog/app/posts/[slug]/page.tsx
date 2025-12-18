@@ -27,6 +27,7 @@ export default async function Page(props: PageProps<"/posts/[slug]">) {
 
   return (
     <main>
+      <h1>{post.title}</h1>
       {post.mainImage ? (
         <Image
           className="aspect-800/300 w-full rounded-xl"
