@@ -1,0 +1,58 @@
+name: CI
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  verify:
+    name: Verify Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Install pnpm
+        run: npm install pnpm --global
+
+      - name: Install nx
+        run: npm install nx --global
+
+      # Cache the pnpm store (dependency tarballs) so installs are faster, but this does not touch the Next.js build output.
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check system info
+        run: pnpm next info
+
+      # Prime the Next.js incremental build cache using the pattern from the official Next.js docs.
+      - name: Restore Next.js cache
+        uses: actions/cache@v5
+        with:
+          path: apps/blog/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: nextjs-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: nextjs-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      # Set the SHAs for Nx Affected commands
+      - name: Set SHAs
+        uses: nrwl/nx-set-shas@v4
+
+      # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
+      - run: nx affected -t lint test build
