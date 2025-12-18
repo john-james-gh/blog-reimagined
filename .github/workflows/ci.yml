@@ -49,9 +49,10 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: nextjs-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
-      # Set the SHAs for Nx Affected commands
-      - name: Set SHAs
+      # Sets NX_BASE and NX_HEAD environment variables by finding the last successful workflow run on main
+      - name: Set NX_BASE and NX_HEAD
         uses: nrwl/nx-set-shas@v4
 
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
-      - run: nx affected -t lint test build
+      - name: Run tasks for affected projects
+        run: nx affected -t lint test build
