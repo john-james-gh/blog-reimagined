@@ -10,6 +10,10 @@
     },
     "typegen": {
       "cache": true
+    },
+    "test": {
+      "cache": true,
+      "outputs": ["{projectRoot}/coverage"]
     }
   },
   "tui": {

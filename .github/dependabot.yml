@@ -32,3 +32,8 @@ updates:
         patterns:
           - "@tailwindcss/postcss"
           - "tailwindcss"
+
+      jest-stack:
+        patterns:
+          - "jest"
+          - "jest-environment-jsdom"
