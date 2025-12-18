@@ -8,7 +8,7 @@ const robotoMono = Roboto_Mono({ subsets: ["latin"], variable: "--font-roboto-mo
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${robotoMono.variable}`}>{children}</body>
+      <body className={`${roboto.variable} ${robotoMono.variable} dark`}>{children}</body>
     </html>
   );
 }
