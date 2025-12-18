@@ -1,3 +1,13 @@
+## Project Structure
+
+This is an Nx monorepo where apps are nested.
+
+When running commands:
+
+- Use `nx build blog` (Nx is installed globally)
+- Or use `pnpm --filter blog <command>` from the root
+- Avoid using `cd` in terminal commands since the terminal persists state between runs
+
 ## File Naming
 
 - React component files: kebab-case (e.g., `prompt-card.tsx`, not `PromptCard.tsx`)
