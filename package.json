@@ -11,6 +11,7 @@
     "eslint-config-prettier": "10.1.8",
     "nx": "22.3.1",
     "prettier": "3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "sort-package-json": "3.6.0"
   },
   "packageManager": "pnpm@10.26.0",
