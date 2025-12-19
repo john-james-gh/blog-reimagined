@@ -9,6 +9,9 @@ const mockPost = {
   title: "Test Post Title",
   slug: { current: "slug" },
   publishedAt: "2024-01-01T00:00:00Z",
+  author: {
+    name: "Test Author",
+  },
   seo: {
     title: "Test SEO Title",
     description: "Test SEO Description",
@@ -151,7 +154,19 @@ describe("Page", () => {
     const { container } = render(page);
 
     const script = container.querySelector('script[type="application/ld+json"]');
+
     expect(script).toBeInTheDocument();
     expect(script?.textContent).toContain('"@type":"BlogPosting"');
+  });
+
+  it("renders the author name", async () => {
+    const props: PageProps<"/posts/[slug]"> = {
+      params: Promise.resolve({ slug: "slug" }),
+      searchParams: Promise.resolve({}),
+    };
+    const page = await Page(props);
+    render(page);
+
+    expect(screen.getByText(/by Test Author/i)).toBeInTheDocument();
   });
 });

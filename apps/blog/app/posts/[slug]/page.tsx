@@ -110,7 +110,7 @@ export default async function Page(props: PageProps<"/posts/[slug]">) {
               <h1 className="mb-0 text-center">{post.title}</h1>
             </CardTitle>
             <CardDescription>
-              <PublishedAt publishedAt={post.publishedAt} />
+              <PublishedAt publishedAt={post.publishedAt} /> by {post.author?.name}
             </CardDescription>
           </CardHeader>
 

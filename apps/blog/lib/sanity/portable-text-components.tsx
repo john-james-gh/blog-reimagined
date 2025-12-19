@@ -59,11 +59,11 @@ export const components: PortableTextComponents = {
     image: (props) =>
       props.value ? (
         <Image
-          className="aspect-800/300 w-full rounded-xl"
-          src={urlFor(props.value).width(800).height(300).quality(80).auto("format").url()}
+          className="rounded-xl"
+          src={urlFor(props.value).width(1000).height(900).quality(80).auto("format").url()}
           alt={props?.value?.alt || ""}
-          width={800}
-          height={300}
+          width={1000}
+          height={900}
         />
       ) : null,
   },
