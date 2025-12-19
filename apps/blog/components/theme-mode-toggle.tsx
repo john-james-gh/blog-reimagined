@@ -17,7 +17,7 @@ export function ThemeModeToggle() {
 
   function handleThemeChange(theme: string) {
     setTheme(theme);
-    track("theme_changed", { theme });
+    track(`theme_changed_${theme}`);
   }
 
   return (
