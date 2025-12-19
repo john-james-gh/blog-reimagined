@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Snapshots renders homepage unchanged 1`] = `
+<div>
+  <main
+    class="container mx-auto flex min-h-screen justify-center px-2 py-4"
+  >
+    <article
+      class="prose prose-neutral dark:prose-invert w-full"
+    >
+      <div
+        class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 h-full border-none shadow-none"
+        data-slot="card"
+      >
+        <div
+          class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 px-4 sm:px-6"
+          data-slot="card-header"
+        >
+          <div
+            class="leading-none font-semibold flex flex-col items-center gap-4"
+            data-slot="card-title"
+          >
+            <h1
+              class="mb-0 text-center"
+            >
+              Test Post Title
+            </h1>
+          </div>
+          <div
+            class="text-muted-foreground text-sm"
+            data-slot="card-description"
+          >
+            <p
+              class="mb-0"
+            >
+              Published on 
+              January 1, 2024
+            </p>
+          </div>
+        </div>
+        <div
+          class="px-4 sm:px-6"
+          data-slot="card-content"
+        >
+          <div>
+            [{"_type":"block","children":[{"_type":"span","text":"Test content"}]}]
+          </div>
+        </div>
+      </div>
+    </article>
+    <script
+      type="application/ld+json"
+    >
+      {"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:3000/posts/slug"},"headline":"Test SEO Title","description":"Test SEO Description","publisher":{"@type":"Person","name":"John James"},"datePublished":"2024-01-01T00:00:00Z","dateModified":"2024-01-01T00:00:00Z"}
+    </script>
+  </main>
+</div>
+`;
