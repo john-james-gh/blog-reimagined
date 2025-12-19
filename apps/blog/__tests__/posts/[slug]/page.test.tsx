@@ -68,6 +68,10 @@ jest.mock("@sanity/image-url", () => ({
   })),
 }));
 
+jest.mock("@/components/theme-mode-toggle", () => ({
+  ThemeModeToggle: () => <button aria-label="Toggle theme">Toggle theme</button>,
+}));
+
 describe("Page", () => {
   it("renders a heading", async () => {
     const props: PageProps<"/posts/[slug]"> = {
@@ -168,5 +172,16 @@ describe("Page", () => {
     render(page);
 
     expect(screen.getByText(/by Test Author/i)).toBeInTheDocument();
+  });
+
+  it("renders the theme toggle", async () => {
+    const props: PageProps<"/posts/[slug]"> = {
+      params: Promise.resolve({ slug: "slug" }),
+      searchParams: Promise.resolve({}),
+    };
+    const page = await Page(props);
+    render(page);
+
+    expect(screen.getByRole("button", { name: /toggle theme/i })).toBeInTheDocument();
   });
 });

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BlogPosting, WithContext } from "schema-dts";
 
+import { ThemeModeToggle } from "@/components/theme-mode-toggle";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { PublishedAt } from "@/components/ui/published-at";
 import { client } from "@/lib/sanity/client";
@@ -109,8 +110,13 @@ export default async function Page(props: PageProps<"/posts/[slug]">) {
               ) : null}
               <h1 className="mb-0 text-center">{post.title}</h1>
             </CardTitle>
-            <CardDescription>
-              <PublishedAt publishedAt={post.publishedAt} /> by {post.author?.name}
+            <CardDescription className="flex flex-row items-center justify-between">
+              <div>
+                <PublishedAt publishedAt={post.publishedAt} /> by {post.author?.name}
+              </div>
+              <div>
+                <ThemeModeToggle />
+              </div>
             </CardDescription>
           </CardHeader>
 
