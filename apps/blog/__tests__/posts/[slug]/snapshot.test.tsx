@@ -39,6 +39,10 @@ jest.mock("@sanity/image-url", () => ({
   })),
 }));
 
+jest.mock("@vercel/analytics", () => ({
+  track: jest.fn(),
+}));
+
 describe("Snapshots", () => {
   it("renders homepage unchanged", async () => {
     const props: PageProps<"/posts/[slug]"> = {

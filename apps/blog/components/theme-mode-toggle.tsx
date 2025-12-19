@@ -1,8 +1,8 @@
 "use client";
 
+import { track } from "@vercel/analytics";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +15,11 @@ import {
 export function ThemeModeToggle() {
   const { setTheme } = useTheme();
 
+  function handleThemeChange(theme: string) {
+    setTheme(theme);
+    track("theme_changed", { theme });
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -25,9 +30,9 @@ export function ThemeModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleThemeChange("light")}>Light</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleThemeChange("dark")}>Dark</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleThemeChange("system")}>System</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
