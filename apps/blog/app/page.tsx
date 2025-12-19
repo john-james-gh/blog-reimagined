@@ -3,15 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CollectionPage, ListItem, WebSite, WithContext } from "schema-dts";
 
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { PublishedAt } from "@/components/ui/published-at";
 import { client } from "@/lib/sanity/client";
 import { POSTS_QUERY } from "@/lib/sanity/queries";
