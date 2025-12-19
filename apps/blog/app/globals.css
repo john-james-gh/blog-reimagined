@@ -132,6 +132,6 @@
 
   code,
   pre {
-    @apply font-mono;
+    @apply bg-muted rounded-xl font-mono font-semibold;
   }
 }
