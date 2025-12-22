@@ -94,7 +94,7 @@ export default async function Page(props: PageProps<"/posts/[slug]">) {
 
   return (
     <main className="container mx-auto flex min-h-screen justify-center px-2 py-4">
-      <article className="prose prose-neutral dark:prose-invert w-full">
+      <article className="prose prose-neutral dark:prose-invert w-full max-w-3xl">
         <Card className="h-full border-none shadow-none">
           <CardHeader className="px-4 sm:px-6">
             <CardTitle className="flex flex-col items-center gap-4">
