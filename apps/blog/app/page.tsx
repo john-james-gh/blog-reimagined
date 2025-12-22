@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { CollectionPage, ListItem, WebSite, WithContext } from "schema-dts";
 
+import { PublishedAt } from "@/components/published-at";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { PublishedAt } from "@/components/ui/published-at";
 import { client } from "@/lib/sanity/client";
 import { POSTS_QUERY } from "@/lib/sanity/queries";
 import type { POSTS_QUERY_RESULT } from "@/lib/sanity/types";
@@ -89,7 +89,7 @@ export default async function Page() {
               {posts.map((post) => (
                 <li key={post._id} className="pl-0">
                   <Link href={`/posts/${post?.slug?.current}`} className="not-prose">
-                    <Card className="bg-background border-none shadow-none">
+                    <Card className="border-none shadow-none">
                       <CardContent>{post?.title}</CardContent>
                       <CardFooter>
                         <CardDescription>

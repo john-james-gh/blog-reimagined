@@ -5,9 +5,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BlogPosting, WithContext } from "schema-dts";
 
+import { PublishedAt } from "@/components/published-at";
 import { ThemeModeToggle } from "@/components/theme-mode-toggle";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { PublishedAt } from "@/components/ui/published-at";
 import { client } from "@/lib/sanity/client";
 import { urlFor } from "@/lib/sanity/image";
 import { components } from "@/lib/sanity/portable-text-components";
