@@ -6,7 +6,7 @@ exports[`Snapshots renders homepage unchanged 1`] = `
     class="container mx-auto flex min-h-screen justify-center px-2 py-4"
   >
     <article
-      class="prose prose-neutral dark:prose-invert w-full"
+      class="prose prose-neutral dark:prose-invert w-full max-w-3xl"
     >
       <div
         class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 h-full border-none shadow-none"
