@@ -7,7 +7,7 @@
     "format:check": "prettier . --check && sort-package-json package.json apps/*/package.json --check"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "6.0.0",
+    "@trivago/prettier-plugin-sort-imports": "6.0.1",
     "eslint-config-prettier": "10.1.8",
     "nx": "22.3.3",
     "prettier": "3.7.4",
