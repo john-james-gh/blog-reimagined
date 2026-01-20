@@ -10,7 +10,7 @@
     "typegen": "sanity schema extract --path=../blog/lib/sanity/schema.json && sanity typegen generate"
   },
   "dependencies": {
-    "@sanity/code-input": "7.0.5",
+    "@sanity/code-input": "7.0.6",
     "@sanity/icons": "3.7.4",
     "@sanity/vision": "5.4.0",
     "react": "19.2.3",
