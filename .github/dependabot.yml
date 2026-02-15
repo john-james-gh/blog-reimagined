@@ -17,6 +17,36 @@ updates:
       interval: "daily"
     open-pull-requests-limit: 10
 
+    ignore:
+      - dependency-name: "@sanity/client"
+      - dependency-name: "@sanity/code-input"
+      - dependency-name: "@sanity/eslint-config-studio"
+      - dependency-name: "@sanity/icons"
+      - dependency-name: "@sanity/vision"
+      - dependency-name: "@tailwindcss/postcss"
+      - dependency-name: "@testing-library/dom"
+      - dependency-name: "@testing-library/jest-dom"
+      - dependency-name: "@testing-library/react"
+      - dependency-name: "@trivago/prettier-plugin-sort-imports"
+      - dependency-name: "@types/jest"
+      - dependency-name: "@types/node"
+      - dependency-name: "@types/react"
+      - dependency-name: "@types/react-dom"
+      - dependency-name: "eslint"
+      - dependency-name: "eslint-config-next"
+      - dependency-name: "eslint-config-prettier"
+      - dependency-name: "jest"
+      - dependency-name: "jest-environment-jsdom"
+      - dependency-name: "nx"
+      - dependency-name: "prettier"
+      - dependency-name: "prettier-plugin-tailwindcss"
+      - dependency-name: "sort-package-json"
+      - dependency-name: "studio"
+      - dependency-name: "tailwindcss"
+      - dependency-name: "ts-node"
+      - dependency-name: "tw-animate-css"
+      - dependency-name: "typescript"
+
     groups:
       react-stack:
         patterns:
@@ -27,13 +57,3 @@ updates:
         patterns:
           - "next"
           - "eslint-config-next"
-
-      tailwind-stack:
-        patterns:
-          - "@tailwindcss/postcss"
-          - "tailwindcss"
-
-      jest-stack:
-        patterns:
-          - "jest"
-          - "jest-environment-jsdom"
